@@ -1,7 +1,15 @@
 {
-  "name": "boosttransit",
-  "version": "0.0.0",
-  "private": true,
+  "name": "boostTransit",
+  "version": "0.0.1",
+  "private": false,
+  "author": {
+    "name": "Jiawei Luo",
+    "email": "weiwei100fun@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
   "scripts": {
     "start": "node ./bin/www"
   },
