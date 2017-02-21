@@ -6,6 +6,7 @@
     "name": "Jiawei Luo",
     "email": "weiwei100fun@hotmail.com"
   },
+  "description": "provide real-time local transit information",
   "repository": {
     "type": "git",
     "url": ""
@@ -19,7 +20,11 @@
     "debug": "~2.6.0",
     "express": "~4.14.1",
     "hbs": "~4.0.1",
+    "mongoose": "^4.8.4",
     "morgan": "~1.7.0",
+    "promise": "^7.1.1",
+    "request": "^2.79.0",
     "serve-favicon": "~2.3.2"
-  }
+  },
+  "license": "MIT"
 }

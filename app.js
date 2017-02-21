@@ -4,11 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var Promise = require('promise');
+var mongoose = require('mongoose');
+var config = require('./config/config');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var transit = require('./routes/transit');
+
+var fetchDataChild = require('./modules/fetchData');
 
 var app = express();
+
+// database connection
+//mongoose.Promise = Promise;
+mongoose.connect(config.database);
+
+// start child process
+app.locals.fetchDataChild = fetchDataChild();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/transit', transit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
