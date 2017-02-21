@@ -9,7 +9,7 @@
   "description": "provide real-time local transit information",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/mrkiddo/boostTransit.git"
   },
   "scripts": {
     "start": "node ./bin/www"
