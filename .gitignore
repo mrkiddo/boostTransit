@@ -4,6 +4,9 @@
 out
 gen
 
+# VS code debug files #
+.vscode/
+
 # OS generated files #
 ######################
 .DS_Store
