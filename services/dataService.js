@@ -148,7 +148,12 @@ var saveTripsData = function (trips) {
     });
 };
 
+var getTripsFromDB = function (stopNo) {
+    return Trip.find({stopNo: stopNo}).sort({_id: -1}).limit(5);
+};
+
 module.exports = {
     getTripData: getTripData,
-    saveTripsData: saveTripsData
+    saveTripsData: saveTripsData,
+    getTripsFromDB: getTripsFromDB
 };
