@@ -141,14 +141,14 @@ var getTripData = function (type, params) {
     });
 };
 
-var saveTripData = function (trips) {
-    Trip.create(trips).then(function (doc) {}
-    , function (err) {
+var saveTripsData = function (trips) {
+    Trip.create(trips).then(function (doc) {
+    }, function (err) {
         console.log(err);
     });
 };
 
 module.exports = {
     getTripData: getTripData,
-    saveTripData: saveTripData
+    saveTripsData: saveTripsData
 };

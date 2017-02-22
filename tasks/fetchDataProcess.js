@@ -2,11 +2,13 @@
  * Created by mrkiddo on 2017/2/20.
  */
 var mongoose = require('mongoose');
+var Promise = require('promise');
 var config = require('../config/config');
 var dataService = require('../services/dataService');
 
 // also need to connect to db for child process
 // since it listens to another port number
+mongoose.Promise = Promise;
 mongoose.connect(config.database);
 
 process.on('message', function (message) {});
@@ -23,7 +25,7 @@ var main = function () {
         routeNo: '168',
         stopNo: '6933'
     }).then(function (info) {
-        dataService.saveTripData(info);
+        dataService.saveTripsData(info);
     }, function (err) {
         console.log(err.toString());
     });
