@@ -5,6 +5,7 @@ var request = require('request');
 var Promise = require('promise');
 var config  = require('../config/transitConfig');
 var Trip = require('../models/trip');
+var helpers = require('../modules/helpers');
 
 var buildUrl = function (type, params) {
     type = type || '';
@@ -148,8 +149,18 @@ var saveTripsData = function (trips) {
     });
 };
 
-var getTripsFromDB = function (stopNo) {
-    return Trip.find({stopNo: stopNo}).sort({_id: -1}).limit(5);
+var getTripsFromDB = function (stopNo, routeNo) {
+    var timestamp = helpers.timestampToObjectId('', 30);
+    var query = {
+        stopNo: stopNo,
+        _id: {
+            $gt: timestamp
+        }
+    };
+    if(routeNo) {
+        query.routeNo = routeNo;
+    }
+    return Trip.find(query).sort({_id: -1}).limit(3);
 };
 
 module.exports = {

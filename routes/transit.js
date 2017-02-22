@@ -12,16 +12,22 @@ router.get('/', function(req, res, next) {
 
 router.get('/trip/stop/:stopNo', function (req, res, next) {
     var stopNo = req.params.stopNo;
-    res.json({
-        success: true
+    dataService.getTripsFromDB(stopNo).then(function (doc) {
+        res.json({
+            success: true,
+            data: doc
+        });
     });
 });
 
 router.get('/trip/stop/:stopNo/route/:routeNo', function (req, res, next) {
     var stopNo = req.params.stopNo;
     var routeNo = req.params.routeNo;
-    res.json({
-        success: true
+    dataService.getTripsFromDB(stopNo, routeNo).then(function (doc) {
+        res.json({
+            success: true,
+            data: doc
+        });
     });
 });
 

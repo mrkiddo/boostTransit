@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//var Promise = require('promise');
+var Promise = require('promise');
 var mongoose = require('mongoose');
 var config = require('./config/config');
 
@@ -17,7 +17,7 @@ var fetchDataChild = require('./modules/fetchData');
 var app = express();
 
 // database connection
-//mongoose.Promise = Promise;
+mongoose.Promise = Promise;
 mongoose.connect(config.database);
 
 // start child process
